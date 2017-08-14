@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">1000Words</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="register_new_user">Register new user</string>
+    <string name="fb_sign_in_button">Fb</string>
+    <string name="g_sign_in_button">G+</string>
+    <string name="or_sign_in_as">Or sign by </string>
+    <string name="vk_sign_in_button">VK</string>
+</resources>
