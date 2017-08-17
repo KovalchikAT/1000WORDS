@@ -16,5 +16,6 @@
     <string name="fb_sign_in_button">Fb</string>
     <string name="g_sign_in_button">G+</string>
     <string name="or_sign_in_as">Or sign by </string>
-    <string name="vk_sign_in_button">VK</string>
+    <string name="guest_sign_in_button">Guest </string>
+    <string name="error_valid_user">Помилка</string>
 </resources>

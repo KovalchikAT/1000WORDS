@@ -5,4 +5,6 @@ package com.kovalchyk_at.a1000words.log_in;
  */
 
 public interface LoginPresenterInterface {
+    void init();
+    void stop();
 }
