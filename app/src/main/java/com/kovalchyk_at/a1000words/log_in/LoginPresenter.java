@@ -12,7 +12,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.kovalchyk_at.a1000words.R;
-
 /**
  * Created by Kovalchyk_at on 14.08.2017.
  */
@@ -77,6 +76,7 @@ class LoginPresenter implements LoginPresenterInterface {
                 break;
             case R.id.facebook_sign_in_button:
                 Log.d(TAG, "facebook_sign_in_button");
+
                 //  credential = FacebookAuthProvider.getCredential(token.getToken());
                 break;
             case R.id.google_sign_in_button:

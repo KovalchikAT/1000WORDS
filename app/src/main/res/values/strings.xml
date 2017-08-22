@@ -17,5 +17,6 @@
     <string name="g_sign_in_button">G+</string>
     <string name="or_sign_in_as">Or sign by </string>
     <string name="guest_sign_in_button">Guest </string>
-    <string name="error_valid_user">Помилка</string>
+    <string name="error_valid_user">Error of validathion</string>
+    <string name="facebook_app_id">125535264741269</string>
 </resources>
