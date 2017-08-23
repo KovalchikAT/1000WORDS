@@ -19,4 +19,8 @@
     <string name="guest_sign_in_button">Guest </string>
     <string name="error_valid_user">Error of validathion</string>
     <string name="facebook_app_id">125535264741269</string>
+    <string name="userNameRes">UserName</string>
+    <string name="userEmailRes">UserEmail</string>
+    <string name="your_learning_progress">Your learning progress</string>
+    <string name="tabswitch">tabSwitch</string>
 </resources>

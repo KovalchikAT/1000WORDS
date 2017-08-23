@@ -1,5 +1,6 @@
 package com.kovalchyk_at.a1000words.log_in;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
@@ -12,12 +13,16 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.kovalchyk_at.a1000words.R;
+
 /**
  * Created by Kovalchyk_at on 14.08.2017.
  */
 
 class LoginPresenter implements LoginPresenterInterface {
 
+    public final static String EXTRA_MESEGE = "com.kovalchyk_at.a1000words.log_in.mAuthUser";
+
+    private TabbedConteinerActivity mTabbedConteinerActivity;
     private LoginActivity mLoginActivity;
     private String TAG = "PresenterTAG";
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -32,7 +37,6 @@ class LoginPresenter implements LoginPresenterInterface {
     public void checkAuth(){
 
     }
-
 
 
     public void onClick(final View view, String email, String password) {
@@ -126,14 +130,25 @@ class LoginPresenter implements LoginPresenterInterface {
                         });
                 break;
             default:
-                break;
+                Log.d(TAG, "default");
+                return;
         }
+        openTabbedActivity();
+
+    }
+
+    private void openTabbedActivity() {
+        Log.d(TAG, "open new activity");
+        Intent intent = new Intent(mLoginActivity, TabbedConteinerActivity.class);
+        intent.putExtra(EXTRA_MESEGE, String.valueOf(mAuth));
+        mLoginActivity.startActivity(intent);
     }
 
     @Override
     public void init() {
         mAuth.addAuthStateListener(mAuthListener);
     }
+
 
     @Override
     public void stop() {
