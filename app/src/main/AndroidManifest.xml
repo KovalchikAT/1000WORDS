@@ -26,12 +26,16 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".log_in.TabbedConteinerActivity"
-                  android:label="@string/app_name"
-                  android:parentActivityName=".log_in.LoginActivity">
+        <activity
+            android:name=".log_in.TabbedConteinerActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".log_in.LoginActivity">
+        </activity>
+        <activity android:name=".body2_tabbed_fragment">
         </activity>
     </application>
 
