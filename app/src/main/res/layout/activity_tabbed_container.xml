@@ -13,10 +13,11 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/tabswitch"
+        android:onClick="tabButtonOnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.501"
+        app:layout_constraintVertical_bias="0.50"
         app:srcCompat="@drawable/ic_left_tab_button"/>
 
     <ImageView
@@ -26,31 +27,40 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/tabswitch"
+        android:onClick="tabButtonOnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.501"
+        app:layout_constraintVertical_bias="0.50"
         app:srcCompat="@drawable/ic_right_tab_button"/>
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="192dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="top"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/left_img_button"
+        app:layout_constraintRight_toLeftOf="@+id/right_img_button"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <FrameLayout
             android:id="@+id/header_tabbed_fragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginBottom="16sp">
 
         </FrameLayout>
 
         <FrameLayout
             android:id="@+id/body_tabbed_fragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|bottom">
 
         </FrameLayout>
     </LinearLayout>

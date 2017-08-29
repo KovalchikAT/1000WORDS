@@ -12,13 +12,15 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.kovalchyk_at.a1000words.LoginActivity;
 import com.kovalchyk_at.a1000words.R;
+import com.kovalchyk_at.a1000words.TabbedConteinerActivity;
 
 /**
  * Created by Kovalchyk_at on 14.08.2017.
  */
 
-class LoginPresenter implements LoginPresenterInterface {
+public class LoginPresenter implements LoginPresenterInterface {
 
     public final static String EXTRA_MESEGE = "com.kovalchyk_at.a1000words.log_in.mAuthUser";
 

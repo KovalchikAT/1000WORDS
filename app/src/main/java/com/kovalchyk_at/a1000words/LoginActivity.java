@@ -1,4 +1,4 @@
-package com.kovalchyk_at.a1000words.log_in;
+package com.kovalchyk_at.a1000words;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.kovalchyk_at.a1000words.R;
+import com.kovalchyk_at.a1000words.log_in.LoginActivityInterface;
+import com.kovalchyk_at.a1000words.log_in.LoginPresenter;
 
 /**
  * A login screen that offers login via email/password.
@@ -24,7 +25,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityInt
     private Button mGIncrementSignInButton;
     private Button mAnonimSignInButton;
     private Button mSignUpButton;
-   /* private log_in_fragment mLogInFragment;
+   /* private body1_tabbed_fragment mLogInFragment;
     private FragmentTransaction mFragmentTransaction;*/
 
 
