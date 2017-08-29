@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:layout_weight="1"
-    android:orientation="vertical"
-    tools:context="com.kovalchyk_at.a1000words.tabbed_menu.body2_tabbed_fragment">
+    android:orientation="vertical">
 
     <ProgressBar
         android:id="@+id/progressBar3"
@@ -15,9 +12,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:progress="50"/>
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </LinearLayout>

@@ -27,7 +27,7 @@ public class TabbedConteinerActivity extends AppCompatActivity {
     ArrayList<Object>  mBodyTabbedFragment;
     FragmentTransaction mTransaction;
     Fragment mBody;
-    int i=2;
+    int i=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,20 +48,23 @@ public class TabbedConteinerActivity extends AppCompatActivity {
     }
 
     protected void tabButtonOnClick(View v){
-        mTransaction = getFragmentManager().beginTransaction();
         switch (v.getId()) {
             case R.id.left_img_button:
                 i++;
+                if (i>2){i=0;}
+                if (i<0){i=2;}
                 break;
             case R.id.right_img_button:
                 i--;
+                if (i>2){i=0;}
+                if (i<0){i=2;}
                 break;
             default:
                 break;
+
         }
-        if (i>2){i=0;}
-        if (i<0){i=2;}
-        mTransaction.add(body_tabbed_fragment, (android.app.Fragment) mBodyTabbedFragment.get(i)).commit();
+        mTransaction.replace(body_tabbed_fragment, (android.app.Fragment)  mBodyTabbedFragment.get(i)).commit();
+
     }
 
 }
