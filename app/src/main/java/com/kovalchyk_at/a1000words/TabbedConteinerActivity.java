@@ -2,7 +2,6 @@ package com.kovalchyk_at.a1000words;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -26,45 +25,40 @@ public class TabbedConteinerActivity extends AppCompatActivity {
     header_tab_fragment mHeaderTabFragment;
     ArrayList<Object>  mBodyTabbedFragment;
     FragmentTransaction mTransaction;
-    Fragment mBody;
-    int i=1;
+
+    int i=2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed_container);
-// // TODO: 29.08.2017 дістати та довернути перемикання фрагментів в активності
+// TODO: 29.08.2017 дістати та довернути перемикання фрагментів в активності щоб не зліталв стан при повороті екрану
 
         mHeaderTabFragment  =   new header_tab_fragment();
         mBodyTabbedFragment = new ArrayList<Object>();
-       // mBody = (Fragment) findViewById(R.id.body_tabbed_fragment);
         mBodyTabbedFragment.add(0, new body1_tabbed_fragment());
         mBodyTabbedFragment.add(1, new body2_tabbed_fragment());
         mBodyTabbedFragment.add(2, new body3_tabbed_fragment());
-
-        mTransaction    =   getFragmentManager().beginTransaction().add(header_tabbed_fragment, mHeaderTabFragment).add(body_tabbed_fragment, (android.app.Fragment) mBodyTabbedFragment.get(i));
+        mTransaction    =   getFragmentManager().beginTransaction().add(header_tabbed_fragment, mHeaderTabFragment).replace(body_tabbed_fragment, (android.app.Fragment) mBodyTabbedFragment.get(i));
         mTransaction.commit();
 
     }
 
     protected void tabButtonOnClick(View v){
+        mTransaction = getFragmentManager().beginTransaction();
         switch (v.getId()) {
             case R.id.left_img_button:
                 i++;
-                if (i>2){i=0;}
-                if (i<0){i=2;}
                 break;
             case R.id.right_img_button:
                 i--;
-                if (i>2){i=0;}
-                if (i<0){i=2;}
                 break;
             default:
                 break;
-
         }
-        mTransaction.replace(body_tabbed_fragment, (android.app.Fragment)  mBodyTabbedFragment.get(i)).commit();
-
+        if (i>mBodyTabbedFragment.size()-1){i=0;}
+        if (i<0){i=mBodyTabbedFragment.size()-1;}
+        mTransaction.replace(body_tabbed_fragment, (android.app.Fragment) mBodyTabbedFragment.get(i)).commit();
     }
 
 }

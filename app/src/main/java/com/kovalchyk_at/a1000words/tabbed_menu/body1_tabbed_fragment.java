@@ -18,7 +18,7 @@ public class body1_tabbed_fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("fragm1", "myLog");
+        Log.d("fragm1TAG", "myLog");
         return inflater.inflate(R.layout.body1_tabbed_fragment, null);
     }
 }
