@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import static com.kovalchyk_at.a1000words.R.id.body_tabbed_fragment;
 import static com.kovalchyk_at.a1000words.R.id.header_tabbed_fragment;
 
+//import com.kovalchyk_at.a1000words.tabbed_menu.body2_tabbed_fragment;
+
 
 /**
  * Created by Kovalchyk_at on 23.08.2017.
@@ -26,7 +28,7 @@ public class TabbedConteinerActivity extends AppCompatActivity {
     ArrayList<Object>  mBodyTabbedFragment;
     FragmentTransaction mTransaction;
 
-    int i=2;
+    int i=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +41,10 @@ public class TabbedConteinerActivity extends AppCompatActivity {
         mBodyTabbedFragment.add(0, new body1_tabbed_fragment());
         mBodyTabbedFragment.add(1, new body2_tabbed_fragment());
         mBodyTabbedFragment.add(2, new body3_tabbed_fragment());
-        mTransaction    =   getFragmentManager().beginTransaction().add(header_tabbed_fragment, mHeaderTabFragment).replace(body_tabbed_fragment, (android.app.Fragment) mBodyTabbedFragment.get(i));
+        mTransaction    =   getFragmentManager().beginTransaction().add(header_tabbed_fragment, mHeaderTabFragment)
+                                                                    .replace(body_tabbed_fragment,
+                                                                            (android.app.Fragment) mBodyTabbedFragment.get(i));
         mTransaction.commit();
-
     }
 
     protected void tabButtonOnClick(View v){
@@ -56,9 +59,10 @@ public class TabbedConteinerActivity extends AppCompatActivity {
             default:
                 break;
         }
+
         if (i>mBodyTabbedFragment.size()-1){i=0;}
         if (i<0){i=mBodyTabbedFragment.size()-1;}
-        mTransaction.replace(body_tabbed_fragment, (android.app.Fragment) mBodyTabbedFragment.get(i)).commit();
+        mTransaction.replace(body_tabbed_fragment,
+                            (android.app.Fragment) mBodyTabbedFragment.get(i)).commit();
     }
-
 }
