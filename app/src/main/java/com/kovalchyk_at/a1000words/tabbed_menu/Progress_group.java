@@ -23,6 +23,6 @@ public class Progress_group {
         for (; i<it.size(); i++) {
             sum += it.get(i).progress_count;
         }
-        return sum*100/i;
+        return sum*i%100;
     }
 }

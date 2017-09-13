@@ -19,10 +19,8 @@ import java.util.ArrayList;
 
 public class Body2_tabbed_fragment extends Fragment{
 
-    // названия компаний (групп)
-    String[] groups_name = new String[] {"HTC", "Samsung", "LG"};
 
-    // названия телефонов (элементов)
+    String[] groups_name = new String[] {"HTC", "Samsung", "LG"};
     String[] phonesHTC = new String[] {"Sensation", "Desire", "Wildfire", "Hero"};
     String[] phonesSams = new String[] {"Galaxy S II", "Galaxy Nexus", "Wave"};
     String[] phonesLG = new String[] {"Optimus", "Optimus Link", "Optimus Black", "Optimus One"};
