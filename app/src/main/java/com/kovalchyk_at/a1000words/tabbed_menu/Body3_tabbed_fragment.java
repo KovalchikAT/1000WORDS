@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.kovalchyk_at.a1000words.R;
 
-public class body3_tabbed_fragment extends Fragment {
+public class Body3_tabbed_fragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,

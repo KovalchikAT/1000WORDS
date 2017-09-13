@@ -14,7 +14,7 @@ import com.kovalchyk_at.a1000words.R;
  * Created by Kovalchyk_at on 23.08.2017.
  */
 
-public class header_tab_fragment extends Fragment {
+public class Header_tab_fragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kovalchyk_at.a1000words.tabbed_menu.body3_tabbed_fragment"
+    tools:context="com.kovalchyk_at.a1000words.tabbed_menu.Body3_tabbed_fragment"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 

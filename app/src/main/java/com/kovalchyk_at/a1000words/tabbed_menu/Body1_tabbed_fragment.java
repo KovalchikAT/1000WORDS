@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.kovalchyk_at.a1000words.R;
 
 
-public class body1_tabbed_fragment extends Fragment {
+public class Body1_tabbed_fragment extends Fragment {
 
     @Nullable
     @Override

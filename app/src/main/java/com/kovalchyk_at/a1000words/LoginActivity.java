@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity implements LoginActivityInt
     private Button mGIncrementSignInButton;
     private Button mAnonimSignInButton;
     private Button mSignUpButton;
-   /* private body1_tabbed_fragment mLogInFragment;
+   /* private Body1_tabbed_fragment mLogInFragment;
     private FragmentTransaction mFragmentTransaction;*/
 
 
