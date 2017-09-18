@@ -19,12 +19,24 @@ import java.util.ArrayList;
 
 public class Body2_tabbed_fragment extends Fragment{
 
-
+    private static final String KEY_EXPLIST_STATE = "CURRENT_LIST";
+    private static final String KEY_EXPLIST_SCROLL = "CURRENT_SCROLL";
+    private static final String KEY_EXPLIST_ITEM = "CURRENT_ITEM";
+    ExpandableListView  mExpList;
     String[] groups_name = new String[] {"HTC", "Samsung", "LG"};
     String[] phonesHTC = new String[] {"Sensation", "Desire", "Wildfire", "Hero"};
     String[] phonesSams = new String[] {"Galaxy S II", "Galaxy Nexus", "Wave"};
     String[] phonesLG = new String[] {"Optimus", "Optimus Link", "Optimus Black", "Optimus One"};
     String[][] items = new String[][] {phonesHTC,phonesSams,phonesLG};
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(KEY_EXPLIST_STATE, mExpList.onSaveInstanceState());
+        outState.putInt(KEY_EXPLIST_ITEM, mExpList.getFirstVisiblePosition());
+        outState.putInt(KEY_EXPLIST_SCROLL, mExpList.getTop());
+
+    }
 
     public void fillData (ArrayList<Progress_group> groups ){
         for (int i=0; i<groups_name.length; i++){
@@ -42,7 +54,7 @@ public class Body2_tabbed_fragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View retV = inflater.inflate(R.layout.body2_tabbed_fragment, null);
 
-        ExpandableListView  mExpList = (ExpandableListView) retV.findViewById(R.id.expand_progress_list);
+        mExpList = (ExpandableListView) retV.findViewById(R.id.expand_progress_list);
 
         ArrayList<Progress_group> mGroups = new ArrayList<Progress_group>();
 
@@ -52,8 +64,14 @@ public class Body2_tabbed_fragment extends Fragment{
 
         mExpList.setAdapter(mAdapter);
 
+        if (savedInstanceState != null){
+            //savedInstanceState = savedInstanceState.getParcelable(KEY_EXPLIST_STATE);
+            mExpList.setTop(savedInstanceState.getInt(KEY_EXPLIST_SCROLL,0));
+        }
 
         Log.d("fragm2TAG", "myLog");
         return retV;
     }
+
+
 }

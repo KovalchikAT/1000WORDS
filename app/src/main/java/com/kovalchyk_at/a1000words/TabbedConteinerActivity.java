@@ -24,19 +24,20 @@ import static com.kovalchyk_at.a1000words.R.id.header_tabbed_fragment;
 
 public class TabbedConteinerActivity extends AppCompatActivity {
 
+    private static final String KEY_FRAGMENT = "CURRENT_FRAGMENT";
     Header_tab_fragment mHeaderTabFragment;
     ArrayList<Object>  mBodyTabbedFragment;
     FragmentTransaction mTransaction;
-
     int i=0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed_container);
-// TODO: 29.08.2017 дістати та довернути перемикання фрагментів в активності щоб не зліталв стан при повороті екрану
 
+        if (savedInstanceState != null){
+            i = savedInstanceState.getInt(KEY_FRAGMENT, 0);
+        }
         mHeaderTabFragment  =   new Header_tab_fragment();
         mBodyTabbedFragment = new ArrayList<Object>();
         mBodyTabbedFragment.add(0, new Body1_tabbed_fragment());
@@ -46,6 +47,12 @@ public class TabbedConteinerActivity extends AppCompatActivity {
                                                                     .replace(body_tabbed_fragment,
                                                                             (android.app.Fragment) mBodyTabbedFragment.get(i));
         mTransaction.commit();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(KEY_FRAGMENT, i);
     }
 
     protected void tabButtonOnClick(View v){
