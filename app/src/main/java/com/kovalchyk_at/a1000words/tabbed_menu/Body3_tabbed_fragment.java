@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.kovalchyk_at.a1000words.R;
+import com.kovalchyk_at.a1000words.tabbed_menu.body3.ItemObjects;
+import com.kovalchyk_at.a1000words.tabbed_menu.body3.SolventRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

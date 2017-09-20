@@ -33,6 +33,7 @@
         <activity
             android:name=".TabbedConteinerActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:parentActivityName=".LoginActivity">
         </activity>
     </application>

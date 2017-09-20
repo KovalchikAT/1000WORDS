@@ -1,4 +1,4 @@
-package com.kovalchyk_at.a1000words.tabbed_menu;
+package com.kovalchyk_at.a1000words.tabbed_menu.body2;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -22,8 +22,8 @@ public class Body2_tabbed_adapter extends BaseExpandableListAdapter{
 
     ArrayList<Progress_group> objects;
 
-    Body2_tabbed_adapter(Context context,
-                         ArrayList<Progress_group> progress_items_group){
+    public Body2_tabbed_adapter(Context context,
+                                ArrayList<Progress_group> progress_items_group){
         mContext = context;
         objects = progress_items_group;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

@@ -1,4 +1,4 @@
-package com.kovalchyk_at.a1000words.tabbed_menu;
+package com.kovalchyk_at.a1000words.tabbed_menu.body3;
 
 /**
  * Created by Kovalchyk_at on 18.09.2017.

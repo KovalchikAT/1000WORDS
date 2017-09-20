@@ -1,4 +1,4 @@
-package com.kovalchyk_at.a1000words.tabbed_menu;
+package com.kovalchyk_at.a1000words.tabbed_menu.body2;
 
 import java.util.ArrayList;
 
