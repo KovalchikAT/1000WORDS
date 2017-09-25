@@ -47,6 +47,7 @@ public class SignInViewImpl implements SignInView {
 
         mLoginFormView = activity.findViewById(R.id.login_scrollview);
         mProgressView = activity.findViewById(R.id.login_progress);
+
     }
 
     private void initListeners() {

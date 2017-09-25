@@ -1,6 +1,7 @@
 package com.kovalchyk_at.a1000words.log_in.presenter;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
@@ -30,13 +31,14 @@ public class SignInPresenterImpl implements SignInPresenter {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseAuth mAuth;
     private AuthCredential credential;
+    private FirebaseUser user;
 
     private SignInView view;
 
     public SignInPresenterImpl(LoginActivity mloginActivity) {
         this.mLoginActivity = mloginActivity;
 
-//        initAuth();
+        initAuth();
     }
 
     private void initAuth() {
@@ -44,7 +46,7 @@ public class SignInPresenterImpl implements SignInPresenter {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
+                user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
@@ -52,7 +54,6 @@ public class SignInPresenterImpl implements SignInPresenter {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
-                // ...
             }
         };
     }
@@ -61,7 +62,7 @@ public class SignInPresenterImpl implements SignInPresenter {
         this.view = view;
     }
 
-    public void checkAuth(){
+    public void checkAuth() {
 
     }
 
@@ -167,8 +168,12 @@ public class SignInPresenterImpl implements SignInPresenter {
     private void openTabbedActivity() {
         Log.d(TAG, "open new activity");
         Intent intent = new Intent(mLoginActivity, TabbedConteinerActivity.class);
-        intent.putExtra(EXTRA_MESEGE, String.valueOf(mAuth));
+        intent.putExtra(EXTRA_MESEGE, (Parcelable) mAuth.getCurrentUser());
         mLoginActivity.startActivity(intent);
+    }
+
+    private void fakeLogin() {
+        mLoginActivity.startActivity(new Intent(mLoginActivity, TabbedConteinerActivity.class));
     }
 
     @Override
@@ -193,6 +198,7 @@ public class SignInPresenterImpl implements SignInPresenter {
                         // ...
                     }
                 });
+        fakeLogin();
     }
 
     @Override
@@ -212,26 +218,25 @@ public class SignInPresenterImpl implements SignInPresenter {
     @Override
     public void onAnonym() {
         Log.d(TAG, "anonym_sign_in_button");
-        initAuth();
-        mAuth.signInAnonymously()
-                .addOnCompleteListener(mLoginActivity, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInAnonymously:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInAnonymously:failure", task.getException());
-                            Toast.makeText(mLoginActivity, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
+        mAuth.signInAnonymously().addOnCompleteListener(mLoginActivity, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    Log.d(TAG, "signInAnonymously:success " + user.getUid());
+                    openTabbedActivity();
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(TAG, "signInAnonymously:failure " + user.getUid(), task.getException());
+                    Toast.makeText(mLoginActivity, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                }
 
-                        // ...
-                    }
-                });
-        fakeLogin();
+                // ...
+            }
+        });
+        initAuth();
+        //fakeLogin();
     }
 
     @Override
@@ -256,10 +261,7 @@ public class SignInPresenterImpl implements SignInPresenter {
                         // ...
                     }
                 });
-    }
-
-    private void fakeLogin() {
-        mLoginActivity.startActivity(new Intent(mLoginActivity, TabbedConteinerActivity.class));
+        fakeLogin();
     }
 
     @Override
